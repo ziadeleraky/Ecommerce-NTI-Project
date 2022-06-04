@@ -1,0 +1,38 @@
+<section class="section-products">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="header">
+          <h3>Featured Product</h3>
+          <h2>Popular Products</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Single Product -->
+      <div class="col-md-6 col-lg-4 col-xl-3" *ngFor="let product of products">
+        <div id="product-1" class="single-product">
+          <div class="part-1">
+            <ul>
+              <li class="w-75">
+                <a *ngIf="!amountBoolean" (click)="amountBoolean = true"><i class="fa fas fa-plus"></i></a>
+                <div class="d-flex" *ngIf="amountBoolean">
+                  <input type="number" class="form-control" placeholder="Amount" [(ngModel)]="amount">
+                  <button class="btn btn-success" (click)="addToCart(product)">Add</button>
+                </div>
+              </li>
+            </ul>
+            <img src="http://localhost:3000/{{product.img}}" />
+          </div>
+          <div class="part-2">
+            <h3 class="product-title" style="font-weight: 600">
+              {{ product.title }}
+            </h3>
+            <h4 class="product-content">{{ product.desc }}</h4>
+            <h4 class="product-price">{{ product.price }}$</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
