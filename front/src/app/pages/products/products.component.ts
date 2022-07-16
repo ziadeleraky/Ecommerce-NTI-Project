@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class ProductsComponent implements OnInit {
   cartProducts: any = [];
   amountBoolean: boolean = false;
   amount: any = 1;
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private toaster: ToastrService) {
     auth.getAllproducts().subscribe((res) => {
       this.products = res.data;
     });
@@ -27,7 +28,10 @@ export class ProductsComponent implements OnInit {
         (productItem: any) => productItem.item._id == item._id
       );
       if (dupItem) {
-        alert('This product is already added in your cart');
+        // alert('This product is already added in your cart');
+        this.toaster.error('This item is already added!', 'Add to Cart Error', {
+          timeOut: 3000,
+        });
         this.amountBoolean = false;
       } else {
         this.cartProducts.push({
@@ -36,6 +40,7 @@ export class ProductsComponent implements OnInit {
         });
         localStorage.setItem('cart', JSON.stringify(this.cartProducts));
         this.amountBoolean = false;
+        this.toaster.success('The item has been added Successfully.', 'Success')
       }
     } else {
       this.cartProducts = [{ item, amount: this.amount }];

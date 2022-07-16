@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     password: new FormControl('', [Validators.required]),
   });
   isSubmitted: boolean = false;
-
+  NG:any = 'API'
   constructor(
     private auth: AuthService,
     private router: Router,
