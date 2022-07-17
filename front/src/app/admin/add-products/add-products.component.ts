@@ -15,7 +15,7 @@ export class AddProductsComponent implements OnInit {
     title: new FormControl('', [Validators.required]),
     desc: new FormControl('', [Validators.required]),
     categories: new FormControl('', [Validators.required]),
-    size: new FormControl('', [Validators.required]),
+    size: new FormControl(''),
     price: new FormControl('', [Validators.required]),
     productImg: new FormControl('', [Validators.required])
   });

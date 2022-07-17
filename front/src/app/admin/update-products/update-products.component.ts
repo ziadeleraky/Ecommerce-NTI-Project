@@ -14,17 +14,18 @@ export class UpdateProductsComponent implements OnInit {
   imgFile: any = null;
   isSubmitted: boolean = false;
   updateProducts = new FormGroup({
-    title: new FormControl('', [Validators.required]),
-    desc: new FormControl('', [Validators.required]),
-    categories: new FormControl('', [Validators.required]),
-    size: new FormControl('', [Validators.required]),
-    price: new FormControl('', [Validators.required]),
-    productImg: new FormControl('', [Validators.required]),
+    title: new FormControl(''),
+    desc: new FormControl(''),
+    categories: new FormControl(''),
+    size: new FormControl(''),
+    price: new FormControl(''),
+    productImg: new FormControl(''),
   });
   constructor(private activated: ActivatedRoute, private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.id = this.activated.snapshot.paramMap.get('id');
+    
   }
 
   get productData() {

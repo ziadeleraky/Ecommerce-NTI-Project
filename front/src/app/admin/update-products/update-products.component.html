@@ -1,5 +1,9 @@
 <div class="container">
-  <form class="mt-4" [formGroup]="updateProducts" (ngSubmit)="handleUpdateProducts()">
+  <form
+    class="mt-4"
+    [formGroup]="updateProducts"
+    (ngSubmit)="handleUpdateProducts()"
+  >
     <!-- title -->
     <div class="row">
       <div class="col col-md-6">
@@ -12,12 +16,12 @@
           name="title"
           formControlName="title"
         />
-        <div
+        <!-- <div
           class="alert alert-danger"
           *ngIf="isSubmitted && productData?.['title']?.invalid"
         >
           Product Title is Required
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- description -->
@@ -32,12 +36,12 @@
           name="desc"
           formControlName="desc"
         />
-        <div
+        <!-- <div
           class="alert alert-danger"
           *ngIf="isSubmitted && productData?.['desc']?.invalid"
         >
           Product Description is Required
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- categories -->
@@ -54,7 +58,7 @@
           name="categories"
           formControlName="categories"
         />
-        <div id="emailHelp" class="form-text">
+        <!-- <div id="emailHelp" class="form-text">
           * Add keywords that describe the product with a space between each
           keyword. (tshirt jeans ,etc...)
         </div>
@@ -63,7 +67,7 @@
           *ngIf="isSubmitted && productData?.['categories']?.invalid"
         >
           Product Categories is Required
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- size -->
@@ -84,12 +88,12 @@
           * Add keywords that describe the product with a space between each
           keyword. (s m ,etc...)
         </div>
-        <div
+        <!-- <div
           class="alert alert-danger"
           *ngIf="isSubmitted && productData?.['size']?.invalid"
         >
           Product Size is Required
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- price -->
@@ -104,12 +108,12 @@
           name="price"
           formControlName="price"
         />
-        <div
+        <!-- <div
           class="alert alert-danger"
           *ngIf="isSubmitted && productData?.['price']?.invalid"
         >
           Product Price is Required
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- img -->
@@ -124,9 +128,12 @@
           formControlName="productImg"
           (change)="handleImg($event)"
         />
-        <div class="alert alert-danger" *ngIf="isSubmitted && productData?.['productImg']?.invalid">
+        <!-- <div
+          class="alert alert-danger"
+          *ngIf="isSubmitted && productData?.['productImg']?.invalid"
+        >
           Product Image is Required
-        </div>
+        </div> -->
       </div>
     </div>
     <button type="submit" class="btn btn-primary">Update Product</button>

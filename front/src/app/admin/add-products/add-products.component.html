@@ -79,17 +79,6 @@
           name="size"
           formControlName="size"
         />
-
-        <div id="emailHelp" class="form-text">
-          * Add keywords that describe the product with a space between each
-          keyword. (s m ,etc...)
-        </div>
-        <div
-          class="alert alert-danger"
-          *ngIf="isSubmitted && productData?.['size']?.invalid"
-        >
-          Product Size is Required
-        </div>
       </div>
     </div>
     <!-- price -->
