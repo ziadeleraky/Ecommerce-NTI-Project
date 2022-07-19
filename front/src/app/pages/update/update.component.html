@@ -15,8 +15,10 @@
           ID: {{ product._id }}
         </div>
         <div class="card-text">{{ product.price }}$</div>
-        <a routerLink="/dashboard/update/{{product._id}}" class="card-button" style="border-radius: none;">Edit</a>
-        <a routerLink="/dashboard/delete/{{product._id}}" class="card-button">Delete</a>
+        <div class="d-flex">
+          <a routerLink="/dashboard/update/{{product._id}}" class="card-button w-50" style="border-radius: none;">Edit</a>
+          <a routerLink="/dashboard/delete/{{product._id}}" class="card-button w-50">Delete</a>
+        </div>
       </div>
     </div>
   </div>

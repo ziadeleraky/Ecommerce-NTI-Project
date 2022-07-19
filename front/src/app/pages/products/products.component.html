@@ -1,31 +1,36 @@
-<div class="container mx-auto mt-4">
+<div class="container">
   <!-- HEADER -->
   <div class="row justify-content-center text-center">
     <div class="col-md-8 col-lg-6">
       <div class="header mt-4 mb-5">
-        <h3>Featured Product</h3>
+        <h3 class="text-danger pt-5">Featured Product</h3>
         <h2>Popular Products</h2>
       </div>
     </div>
   </div>
   <!-- PRODUCT -->
-  <div class="row justify-content-between">
-    <div class="col-xl-3 col-lg-4 col-md-4" *ngFor="let product of products">
+
+  <!-- ******************************* -->
+  <div class="row g-4 justify-content-center">
+    <div *ngFor="let product of products" class="col-xl-3 col-lg-4 col-md-6 d-flex cards">
       <div class="card" style="width: 18rem">
-        <img
-          src="http://localhost:3000/{{ product.img }}"
-          class="card-img-top"
-          alt="product image"
-        />
+        <div class="product-img">
+          <img
+            src="http://localhost:3000/{{ product.img }}"
+            class="card-img-top"
+            alt="..."
+          />
+        </div>
         <div class="card-body">
           <h5 class="card-title">{{ product.title }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ product.price }}$</h6>
+          <h6>{{ product.price }}$</h6>
           <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+            {{ product.desc }}
           </p>
-          <!-- <a href="#" class="btn"><i class="fa fa-plus"></i> Add</a> -->
-          <a class="btn" *ngIf="!amountBoolean" (click)="amountBoolean = true"
+          <a
+            class="btn btn-dark"
+            *ngIf="!amountBoolean"
+            (click)="amountBoolean = true"
             ><i class="fa fas fa-plus"></i> Add</a
           >
           <div class="d-flex" *ngIf="amountBoolean">
@@ -43,4 +48,39 @@
       </div>
     </div>
   </div>
+  <!-- ******************************* -->
+
+  <!-- <div class="row justify-content-between">
+    <div class="col-xl-3 col-lg-4 col-md-4" *ngFor="let product of products">
+      <div class="card" style="width: 18rem">
+        <img
+          src="http://localhost:3000/{{ product.img }}"
+          class="card-img-top"
+          alt="product image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ product.price }}$</h6>
+          <p class="card-text">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <a class="btn" *ngIf="!amountBoolean" (click)="amountBoolean = true"
+            ><i class="fa fas fa-plus"></i> Add</a
+          >
+          <div class="d-flex" *ngIf="amountBoolean">
+            <input
+              type="number"
+              class="form-control w-50 me-3"
+              placeholder="Amount"
+              [(ngModel)]="amount"
+            />
+            <button class="btn btn-dark" (click)="addToCart(product)">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
 </div>
